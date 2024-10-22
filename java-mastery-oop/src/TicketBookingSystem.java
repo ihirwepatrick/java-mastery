@@ -11,7 +11,7 @@ public class TicketBookingSystem {
 
             // Check age eligibility
             if (age < 18) {
-                throw new IllegalArgumentException("You must be at least 18 years old to book a ticket.");
+                throw new IllegalAge("You must be at least 18 years old to book a ticket.");
             }
 
             // Prompt the user for booking time
@@ -29,7 +29,7 @@ public class TicketBookingSystem {
         } catch (java.util.InputMismatchException e) {
             // Handle non-numeric input
             System.out.println("Error: Invalid input. Please enter numeric values only.");
-        } catch (IllegalArgumentException e) {
+        } catch (IllegalAge e) {
             // Handle custom illegal argument exceptions
             System.out.println("Error: " + e.getMessage());
         } catch (Exception e) {
