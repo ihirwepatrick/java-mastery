@@ -7,4 +7,7 @@ public class Fruit extends Item {
     public String getType() {
         return type;
     }
+    public String toString() {
+        return super.toString() + ", Type: " + type;
+    }
 }

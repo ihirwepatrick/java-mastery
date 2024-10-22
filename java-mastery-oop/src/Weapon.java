@@ -12,4 +12,7 @@ public class Weapon extends Item {
     public String getType() {
         return type;
     }
+    public String toString() {
+        return super.toString() + "Damage: " + damage + "Type: " + type;
+    }
 }
