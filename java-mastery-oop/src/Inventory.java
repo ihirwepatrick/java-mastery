@@ -10,7 +10,7 @@ public class Inventory {
     }
     public void displayInventory() {
         for(Item item : items) {
-            System.out.println("Item: " + item.getName() + ", Quantity: " + item.getQuantity());
+            System.out.println(item.toString());
         }
     }
 }

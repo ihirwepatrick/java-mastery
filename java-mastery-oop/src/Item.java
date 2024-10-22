@@ -11,5 +11,11 @@ public String getName() {
 public int getQuantity() {
     return quantity;
 }
-
+@Override
+    public String toString() {
+        return "Item{" +
+                "name='" + name + '\'' +
+                ", quantity=" + quantity +
+                '}';
+    }
 }
