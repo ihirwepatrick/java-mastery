@@ -24,7 +24,7 @@ public class Main {
             int gradeLevel = scanner.nextInt();
             scanner.nextLine(); // Consume the newline character
 
-            System.out.print("Enter student's major: ");
+            System.out.print("Enter student's Speciality: ");
             String major = scanner.nextLine();
 
             System.out.print("Enter student's school: ");
@@ -32,7 +32,9 @@ public class Main {
 
             System.out.print("Enter student's year of study: ");
             int yearOfStudy = scanner.nextInt();
-
+if (age <= 18) {
+    throw new UnderAgeException("Under age! Please u must be over 18");
+}
             // Create a Student object with the entered details
             Student student1 = new Student(name, age, gender, address, gradeLevel, major, school, yearOfStudy);
 

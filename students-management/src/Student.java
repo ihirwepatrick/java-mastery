@@ -34,14 +34,18 @@ public Student(String name, int age, String gender, String address, int id, Stri
     public int getGrade() {
     return grade;
     }
-    public void setGrade(int grade) {
+    public void setGrade(int grade) throws GradeException {
    if (grade >= 0 && grade <= 100) {
        this.grade = grade;
    } else {
-       System.out.println("Grade must be between 0 and 100 else the student is supposed to repeat");
+       throw new GradeException("Grade must be between 0 and 100 else the student is supposed t");
    }
     }
+
     public void displayStudentInfo() {
         System.out.println("Name: " + getName() + "\n"+ "Grade: " + getGrade() + "\n"+ "Faculty: " + getFaculty() + "\n"+ "Specialty: " + getSpecialty());
+    }
+    public void showInfo() throws GradeException {
+        displayStudentInfo();
     }
 }
