@@ -41,8 +41,8 @@ if (age <= 18) {
             // Display the student information
             student1.displayStudentInfo();
 
-        } catch (Exception e) {
-            System.out.println("Error: Invalid input. Please enter the correct details.");
+        } catch (UnderAgeException e) {
+            System.out.println(e.getMessage());
         } finally {
             // Close the scanner
             scanner.close();
