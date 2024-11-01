@@ -1,6 +1,6 @@
 public class Student {
-    private String studentId;
-    private String name;
+    protected String studentId;
+    protected String name;
 
     public Student(String studentId, String name) {
         this.studentId = studentId;

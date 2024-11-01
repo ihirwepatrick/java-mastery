@@ -1,33 +1,54 @@
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        // Creating a project manager
+        Scanner scanner = new Scanner(System.in);
         ProjectManager projectManager = new ProjectManager();
 
         // Creating projects
-        Project researchProject = new ResearchProject("RP101", "AI Research Project");
-        Project developmentProject = new DevelopmentProject("DP202", "Mobile App Development");
+        System.out.print("Enter project type (Research/Development): ");
+        String projectType = scanner.nextLine();
+        System.out.print("Enter project ID: ");
+        String projectId = scanner.nextLine();
+        System.out.print("Enter project name: ");
+        String projectName = scanner.nextLine();
 
-        // Adding projects to the manager
-        projectManager.addProject(researchProject);
-        projectManager.addProject(developmentProject);
+        Project project;
+        if (projectType.equalsIgnoreCase("Research")) {
+            project = new ResearchProject(projectId, projectName);
+        } else {
+            project = new DevelopmentProject(projectId, projectName);
+        }
+        projectManager.addProject(project);
 
         // Creating students
-        Student student1 = new Student("S001", "Alice");
-        Student student2 = new Student("S002", "Bob");
-        Student student3 = new Student("S003", "Charlie");
-
-        // Adding students to projects
-        projectManager.addStudentToProject("RP101", student1);
-        projectManager.addStudentToProject("RP101", student2);
-        projectManager.addStudentToProject("RP101", student3);
+        for (int i = 1; i <= 3; i++) {
+            System.out.print("Enter student ID for student " + i + ": ");
+            String studentId = scanner.nextLine();
+            System.out.print("Enter student name for student " + i + ": ");
+            String studentName = scanner.nextLine();
+            Student student = new Student(studentId, studentName);
+            projectManager.addStudentToProject(projectId, student);
+        }
 
         // Attempt to add more than the allowed number of students for a development project
-        projectManager.addStudentToProject("DP202", student1);
-        projectManager.addStudentToProject("DP202", student2);
-        projectManager.addStudentToProject("DP202", student3);
-        projectManager.addStudentToProject("DP202", new Student("S004", "Dave"));  // Should trigger exception
+        if (project instanceof DevelopmentProject) {
+            for (int i = 4; i <= 5; i++) {
+                System.out.print("Enter student ID for additional student " + i + ": ");
+                String studentId = scanner.nextLine();
+                System.out.print("Enter student name for additional student " + i + ": ");
+                String studentName = scanner.nextLine();
+                Student student = new Student(studentId, studentName);
+                try {
+                    projectManager.addStudentToProject(projectId, student);
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+        }
 
         // Display all projects
         projectManager.showAllProjects();
+        scanner.close();
     }
 }
