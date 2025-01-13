@@ -17,7 +17,7 @@ enum Day {
 }
 
 public class DayOfTheWeek {
-    public static void main(String[] args) {e
+    public static void main(String[] args) {
 
         System.out.println("Days of the week:");
         for (Day day : Day.values()) {
