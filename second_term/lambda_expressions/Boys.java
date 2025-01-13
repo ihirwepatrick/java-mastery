@@ -1,5 +1,5 @@
 public class Boys extends Thread{
-    public void sitting () {
+    public void run () {
         for (int i =0; i <100; i++) {
             System.out.println("Boy");
         }
