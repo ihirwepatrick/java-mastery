@@ -3,6 +3,8 @@ public class SimplifiedCodeUsingLambdaToImplementRunnableAnonymousClass {
         Runnable numberTask = () -> {
             for (int i = 0; i < 10; i++) {
                 System.out.println("int = " + i);
+                new counter();
+               System.out.println(" Counter after number task: " +  counter.getCounter());
                 try {
                     Thread.sleep(20);
                 } catch (InterruptedException e) {
@@ -13,6 +15,9 @@ public class SimplifiedCodeUsingLambdaToImplementRunnableAnonymousClass {
         Runnable lettersTask = () -> {
             for(char letters = 'a'; letters <= 'z'; letters++) {
                 System.out.println(letters);
+                new counter();
+                System.out.println(" Counter after letter task: " +  counter.getCounter());
+
                 try {
                     Thread.sleep(20);
                 } catch (InterruptedException e) {
@@ -24,6 +29,12 @@ public class SimplifiedCodeUsingLambdaToImplementRunnableAnonymousClass {
         Thread lettersThread = new Thread(lettersTask);
         numberThread.start();
         lettersThread.start();
+        try {
+            numberThread.join();
+            lettersThread.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }
 // in this program I am using Lambda expressions to simplify the codes for printing out the numbers

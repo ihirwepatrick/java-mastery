@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/lambda_expressions.iml" filepath="$PROJECT_DIR$/.idea/lambda_expressions.iml" />
+      <module fileurl="file://$PROJECT_DIR$/threading/threading.iml" filepath="$PROJECT_DIR$/threading/threading.iml" />
     </modules>
   </component>
 </project>
