@@ -1,3 +1,6 @@
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 class BoyA implements Runnable {
     public void run() {
         System.out.println("Boy Thread started");
@@ -35,6 +38,8 @@ class GirlA implements Runnable {
 
 public class ThreadPoolExampleUsingExecutorFramework {
     public static void main(String[] args) {
-
+        ExecutorService executir = Executors.newSingleThreadExecutor();
+        executir.execute(new BoyA());
+        executir.execute(new GirlA());
     }
 }
