@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/banking_app_using_threads/banking_app_using_threads.iml" filepath="$PROJECT_DIR$/banking_app_using_threads/banking_app_using_threads.iml" />
+      <module fileurl="file://$PROJECT_DIR$/threading.iml" filepath="$PROJECT_DIR$/threading.iml" />
+    </modules>
+  </component>
+</project>
