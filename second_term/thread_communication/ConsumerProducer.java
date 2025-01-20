@@ -1,52 +1,77 @@
-class  CounterA {
+class CounterA {
     int counter;
+    boolean valueSet;
+
     public synchronized void put(int num) {
-        System.out.println("Put: "+ num);
+        while (valueSet) {
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+        }
+        System.out.println("Put: " + num);
         counter = num;
+        valueSet = true;
+        notify();
     }
+
     public synchronized void get() {
+        while (!valueSet) {
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+        }
         System.out.println("Get: " + counter);
-        try {}
+        valueSet = false;
+        notify();
     }
 }
-class PrucerA implements Runnable {
+
+class ProducerA implements Runnable {
     CounterA counter;
-    public PrucerA(CounterA counter) {
+
+    public ProducerA(CounterA counter) {
         this.counter = counter;
-        Thread t = new Thread(this, "Producer");
+        new Thread(this, "Producer").start();
     }
+
+    @Override
     public void run() {
         int i = 0;
-        while(true) {
+        while (true) {
             counter.put(i++);
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
         }
     }
 }
+
 class ConsumerA implements Runnable {
     CounterA counter;
+
     public ConsumerA(CounterA counter) {
         this.counter = counter;
-        Thread t = new Thread(this, "Consumer");
-        t.start();
+        new Thread(this, "Consumer").start();
     }
+
+    @Override
     public void run() {
-while(true) {
-    counter.get();
-    try {
-        Thread.sleep(1000);
-    } catch (RuntimeException | InterruptedException e) {
-        throw new RuntimeException(e);
+        while (true) {
+            counter.get();
+        }
     }
 }
 
-
-    }
-}
-public class ConsumerProducer{
+public class ConsumerProducer {
     public static void main(String[] args) {
-        CounterA counter = new CounterA();
-        new PrucerA(counter).run();
-        new ConsumerA(counter).run();
-
+        CounterA c = new CounterA();
+        new ProducerA(c);
+        new ConsumerA(c);
     }
 }
