@@ -54,8 +54,11 @@ public class ThreadPoolExampleUsingExecutorFramework {
         // Submit tasks to the pool
         executor.execute(new BoyA());
         executor.execute(new GirlA());
+        // the other sider thread
         executor.execute(new TeacherA());
-
+//        for (int i = 0; i < 5; i++) {
+//            System.out.println("main values: " +i);
+//        }
         // Shutdown the executor after tasks are completed
         executor.shutdown();
     }
