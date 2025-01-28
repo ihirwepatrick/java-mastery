@@ -4,12 +4,12 @@
          version="6.0">
 
     <servlet>
-        <servlet-name>AddNumbersServlet</servlet-name>
+        <servlet-name>sumServlet</servlet-name>
         <servlet-class>org.example.dynamicwebapplication.sumServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>AddNumbersServlet</servlet-name>
+        <servlet-name>sumServlet</servlet-name>
         <url-pattern>/add</url-pattern>
     </servlet-mapping>
     <servlet>
@@ -18,7 +18,8 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>TotalServlet</servlet-name>
-        <url-pattern>/tot</url-pattern>
+        <url-pattern>/answer</url-pattern>
     </servlet-mapping>
+
 
 </web-app>

@@ -13,7 +13,7 @@ public class sumServlet extends HttpServlet {
 int num1 = Integer.parseInt(request.getParameter("num1"));
 int num2 = Integer.parseInt(request.getParameter("num2"));
 int sum = num1 + num2;
-RequestDispatcher rd = request.getRequestDispatcher("sum.jsp");
+RequestDispatcher rd = request.getRequestDispatcher("answer");
 PrintWriter out = response.getWriter();
 out.println(sum);
     }
