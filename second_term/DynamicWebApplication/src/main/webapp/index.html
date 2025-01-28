@@ -2,13 +2,75 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>This is title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sum Calculator</title>
+    <style>
+        /* General body styling */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            color: #ffffff;
+        }
+
+        /* Styling the form container */
+        .form-container {
+            background-color: #ffffff;
+            color: #333333;
+            padding: 20px 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        /* Input fields styling */
+        .form-container input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        /* Submit button styling */
+        .form-container input[type="submit"] {
+            background-color: #6a11cb;
+            color: #ffffff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-container input[type="submit"]:hover {
+            background-color: #2575fc;
+        }
+
+        /* Headline styling */
+        .form-container h1 {
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
 <body>
-<form action="add" method="post">
-    Num1: <input type="text" name="num1"><br>
-    Num2: <input type="text" name="num2"><br>
-    <input type="submit">
-</form>
+<div class="form-container">
+    <h1>Sum Calculator</h1>
+    <form action="add" method="post">
+        <label for="num1">Num1:</label>
+        <input type="text" id="num1" name="num1" placeholder="Enter first number"><br>
+        <label for="num2">Num2:</label>
+        <input type="text" id="num2" name="num2" placeholder="Enter second number"><br>
+        <input type="submit" value="Calculate">
+    </form>
+</div>
 </body>
 </html>
