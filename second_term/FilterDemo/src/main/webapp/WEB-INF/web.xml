@@ -6,6 +6,10 @@
     <servlet>
         <servlet-name>Calculus</servlet-name>
         <servlet-class>org.example.filterdemo.CalculationsServlet</servlet-class>
+        <init-param>
+            <param-name>Servlet Description</param-name>
+            <param-value>This is the desription</param-value>
+        </init-param>
     </servlet>
     <servlet-mapping>
         <servlet-name>Calculus</servlet-name>
@@ -19,4 +23,8 @@
         <filter-name>calculusFilter</filter-name>
         <url-pattern>/add</url-pattern>
     </filter-mapping>
+    <context-param>
+        <param-name>Email</param-name>
+        <param-value>nipcts3@gmail.com</param-value>
+    </context-param>
 </web-app>

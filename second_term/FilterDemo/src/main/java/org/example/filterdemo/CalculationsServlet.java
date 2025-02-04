@@ -2,6 +2,8 @@ package org.example.filterdemo;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+
+import jakarta.servlet.ServletContext;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -18,16 +20,14 @@ public class CalculationsServlet extends HttpServlet {
             out.println("<h3 style='color:red;'>Error: num1 and num2 are required.</h3>");
             return;
         }
-
-        try {
             int num1 = Integer.parseInt(num1Str);
             int num2 = Integer.parseInt(num2Str);
             int sum = num1 + num2;
 
             // Display the result
             out.println("<h2>Result: " + sum + "</h2>");
-        } catch (NumberFormatException e) {
-            out.println("<h3 style='color:red;'>Error: Invalid numbers.</h3>");
-        }
+            ServletContext context = getServletContext();
+            String email = context.getInitParameter("email");
+            System.out.println("Email: " + email);
     }
 }
