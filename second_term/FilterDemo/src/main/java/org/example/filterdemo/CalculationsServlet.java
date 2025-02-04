@@ -1,24 +1,33 @@
 package org.example.filterdemo;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+
 public class CalculationsServlet extends HttpServlet {
-    public void service(HttpServletRequest req , HttpServletResponse res) throws IOException {
-        int num1 = Integer.parseInt(req.getParameter("num1"));
-        int num2 = Integer.parseInt(req.getParameter("num2"));
-        int sum = num1 + num2 ;
+    public void service(HttpServletRequest req, HttpServletResponse res) throws IOException {
+        res.setContentType("text/html"); // Set response type to HTML
         PrintWriter out = res.getWriter();
 
+        String num1Str = req.getParameter("num1");
+        String num2Str = req.getParameter("num2");
+
+        if (num1Str == null || num2Str == null || num1Str.isEmpty() || num2Str.isEmpty()) {
+            out.println("<h3 style='color:red;'>Error: num1 and num2 are required.</h3>");
+            return;
+        }
+
+        try {
+            int num1 = Integer.parseInt(num1Str);
+            int num2 = Integer.parseInt(num2Str);
+            int sum = num1 + num2;
+
+            // Display the result
+            out.println("<h2>Result: " + sum + "</h2>");
+        } catch (NumberFormatException e) {
+            out.println("<h3 style='color:red;'>Error: Invalid numbers.</h3>");
+        }
     }
 }
-
-
-
-
-
-
-
-
-
