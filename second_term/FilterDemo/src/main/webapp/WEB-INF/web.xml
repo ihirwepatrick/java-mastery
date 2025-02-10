@@ -27,4 +27,14 @@
         <param-name>Email</param-name>
         <param-value>nipcts3@gmail.com</param-value>
     </context-param>
+    <servlet>
+        <servlet-name>calculusJSP</servlet-name>
+        <jsp-file>../add.jsp</jsp-file>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>calculusJSP</servlet-name>
+        <url-pattern>/sum</url-pattern>
+    </servlet-mapping>
+
 </web-app>
