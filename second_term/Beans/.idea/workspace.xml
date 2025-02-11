@@ -17,10 +17,10 @@
       <change afterPath="$PROJECT_DIR$/../UseBeans/.idea/misc.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../UseBeans/.idea/vcs.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../UseBeans/src/main/java/com/example/usebeans/StudentBean.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../UseBeans/src/main/webapp/display.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../UseBeans/src/main/webapp/registration.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../UseBeans/src/main/webapp/registrationProcess.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UseBeans/src/main/webapp/display.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../UseBeans/src/main/webapp/display.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UseBeans/src/main/webapp/registration.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../UseBeans/src/main/webapp/registration.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UseBeans/src/main/webapp/registrationProcess.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../UseBeans/src/main/webapp/registrationProcess.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,7 +160,7 @@
       <workItem from="1739257456172" duration="15000" />
       <workItem from="1739257509698" duration="65000" />
       <workItem from="1739257587063" duration="66000" />
-      <workItem from="1739257691057" duration="1367000" />
+      <workItem from="1739257691057" duration="2077000" />
     </task>
     <servers />
   </component>
