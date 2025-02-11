@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.util.HashMap" %>
 <%@ page import="com.example.usebeans.StudentBean" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
 
 <html>
 <head>
@@ -37,6 +38,11 @@
         }
     %>
 </table>
+<c:forEach items="${studentMap}" var="student">
+    ${student.firstname}<br>
+    ${student.lastname}<br>
+    ${student.studentId}<br></br>
+</c:forEach>
 
 <br>
 <a href="registration.jsp">Register Another Student</a>
