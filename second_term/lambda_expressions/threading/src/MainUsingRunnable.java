@@ -1,19 +1,22 @@
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 public class MainUsingRunnable {
     public static void main(String[] args) {
         LettersRunnable lettersRunnable = new LettersRunnable();
        NumbersRunnable numbersRunnable = new NumbersRunnable();
-       Thread lettersThread = new Thread(lettersRunnable);
-       Thread numbersThread = new Thread(numbersRunnable);
-       lettersThread.start();
+        ExecutorService executor = Executors.newFixedThreadPool(5);
 
-       numbersThread.start();
+      executor.execute(lettersRunnable);
+      executor.execute(numbersRunnable);
+      executor.shutdown();
 
        // thread safety
-        try {
-            lettersThread.join();
-            numbersThread.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            lettersThread.join();
+//            numbersThread.join();
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
     }
 }

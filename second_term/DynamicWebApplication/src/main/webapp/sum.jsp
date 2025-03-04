@@ -14,7 +14,7 @@
 
     <input type="submit" value="Calculate Sum">
 </form>
-
+${param.num1}
 <%
     String num1Str = request.getParameter("num1");
     String num2Str = request.getParameter("num2");

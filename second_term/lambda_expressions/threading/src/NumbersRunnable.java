@@ -5,7 +5,8 @@ public class NumbersRunnable implements Runnable {
             try {
                 Thread.sleep(20);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                throw new RuntimeException(e);
+//                e.printStackTrace();
             }
         }
     }
