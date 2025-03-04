@@ -1,24 +1,23 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: ihirwe
-  Date: 3/4/2025
-  Time: 9:09 AM
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="jakarta.servlet.http.HttpSession" %>
+<%
+    // Use the existing session object instead of creating a new one
+    if (session == null || session.getAttribute("userId") == null) {
+        response.sendRedirect("login.jsp");
+        return;
+    }
+%>
+
 <html>
 <head>
-    <title>Title</title>
+    <title>Register Project</title>
 </head>
 <body>
-<%@ page import="java.util.List" %>
-<%@ page import="com.example.projectmanagement.model.Project" %>
-<h2>Your Projects</h2>
-<ul>
-    <% List<Project> projects = (List<Project>) request.getAttribute("projects");
-    for (Project project : projects) { %>
-         <li><strong><%= project.getName() %></strong>: <%= project.getDescription() %></li>
-    <% } %>
-    </ul>
+<h2>Register New Project</h2>
+<form action="projects" method="post">
+    <label>Project Name:</label> <input type="text" name="name" required><br>
+    <label>Description:</label> <textarea name="description" required></textarea><br>
+    <input type="submit" value="Register">
+</form>
+<a href="logout">Logout</a>
 </body>
 </html>

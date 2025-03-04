@@ -1,8 +1,8 @@
 package com.example.projectmanagement.Controllers;
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.SQLException;
-import java.util.List;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 import com.example.projectmanagement.model.Project;
 import com.example.projectmanagement.model.ProjectDAO;
@@ -13,8 +13,12 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
-@WebServlet("/projects")
+import java.sql.SQLException;
+import java.util.List;
+
+@WebServlet("/views/projects")
 public class ProjectController extends HttpServlet {
     private ProjectDAO projectDAO;
 
@@ -31,7 +35,13 @@ public class ProjectController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int userId = Integer.parseInt(request.getParameter("userId"));
+        HttpSession session = request.getSession(false);
+        if (session == null || session.getAttribute("userId") == null) {
+            response.sendRedirect("add-user.jsp");
+            return;
+        }
+
+        int userId = (int) session.getAttribute("userId");
         String name = request.getParameter("name");
         String description = request.getParameter("description");
 
@@ -44,11 +54,16 @@ public class ProjectController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int userId = Integer.parseInt(request.getParameter("userId"));
+        HttpSession session = request.getSession(false);
+        if (session == null || session.getAttribute("userId") == null) {
+            response.sendRedirect("add-user.jsp");
+            return;
+        }
+
+        int userId = (int) session.getAttribute("userId");
         List<Project> projects = projectDAO.getUserProjects(userId);
         request.setAttribute("projects", projects);
         RequestDispatcher dispatcher = request.getRequestDispatcher("projects.jsp");
         dispatcher.forward(request, response);
     }
 }
-

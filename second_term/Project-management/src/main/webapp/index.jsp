@@ -9,5 +9,7 @@
 </h1>
 <br/>
 <a href="hello-servlet">Hello Servlet</a>
+<a href="views/add-user.jsp">Login</a>
+<a href="views/signup.jsp">Register</a>
 </body>
 </html>

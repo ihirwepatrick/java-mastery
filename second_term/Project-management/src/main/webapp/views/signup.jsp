@@ -2,24 +2,17 @@
 <%@ page import="java.util.ResourceBundle" %>
 
 <%
-    // Get selected language or default to English
     String language = request.getParameter("lang");
     if (language == null) {
         language = "en";
     }
     Locale locale = new Locale(language);
     ResourceBundle bundle = ResourceBundle.getBundle("message", locale);
-
-    // Check if the user is already logged in
-    if (session.getAttribute("userId") != null) {
-        response.sendRedirect("projects.jsp");
-        return;
-    }
 %>
 
 <html>
 <head>
-    <title><%= bundle.getString("login.title") %></title>
+    <title><%= bundle.getString("signup.title") %></title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -27,7 +20,7 @@
             text-align: center;
             padding: 50px;
         }
-        .login-container {
+        .signup-container {
             width: 300px;
             background: white;
             padding: 20px;
@@ -46,7 +39,7 @@
             border-radius: 5px;
         }
         .btn {
-            background: #28a745;
+            background: #007bff;
             color: white;
             padding: 10px;
             border: none;
@@ -55,33 +48,38 @@
             border-radius: 5px;
         }
         .btn:hover {
-            background: #218838;
+            background: #0056b3;
         }
     </style>
     <script>
         function changeLanguage() {
             var selectedLang = document.getElementById("languageSelect").value;
-            window.location.href = "add-user.jsp?lang=" + selectedLang;
+            window.location.href = "signup.jsp?lang=" + selectedLang;
         }
     </script>
 </head>
 <body>
-<div class="login-container">
+<div class="signup-container">
     <h2><%= bundle.getString("login.title") %></h2>
 
     <% if (request.getParameter("error") != null) { %>
-    <p style="color:red;">Invalid username or password. Please try again.</p>
+    <p style="color:red;">Error: Unable to register user.</p>
     <% } %>
 
-    <form action="login" method="post">
+    <form action="signup" method="post">
         <label><%= bundle.getString("login.username") %></label>
-        <input type="text" name="email" required><br>
+        <input type="text" name="name" required><br>
+
+        <label><%= bundle.getString("login.email") %></label>
+        <input type="email" name="email" required><br>
 
         <label><%= bundle.getString("login.password") %></label>
         <input type="password" name="password" required><br>
 
-        <input type="submit" class="btn" value="<%= bundle.getString("login.button") %>">
+        <input type="submit" class="btn" value="signup">
     </form>
+
+    <p> Login <a href="add-user.jsp">Go to login</a></p>
 
     <!-- Language Selection -->
     <label><%= bundle.getString("language.label") %></label>
