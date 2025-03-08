@@ -29,13 +29,13 @@ public class SignupServlet extends HttpServlet {
             int result = stmt.executeUpdate();
 
             if (result > 0) {
-                response.sendRedirect("add-user.jsp?success=1");
+                response.sendRedirect("/views/projects?success=1");
             } else {
-                response.sendRedirect("signup.jsp?error=1");
+                response.sendRedirect("/views/signup.jsp?error=1");
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            response.sendRedirect("signup.jsp?error=1");
+            response.sendRedirect("/views/signup.jsp?error=1");
         }
     }
 }
