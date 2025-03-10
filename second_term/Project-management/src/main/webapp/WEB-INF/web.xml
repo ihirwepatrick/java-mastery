@@ -3,13 +3,58 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
          version="6.0">
-    <servlet>
-        <servlet-name>Project</servlet-name>
-        <jsp-file>../views/projects.jsp</jsp-file>
 
+    <!-- LoginServlet Configuration -->
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>com.example.projectmanagement.Controllers.LoginServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>Project</servlet-name>
-        <url-pattern>/views/projects</url-pattern>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/login</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>LogoutLogin</servlet-name>
+        <servlet-class>com.example.projectmanagement.Controllers.LoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LogoutLogin</servlet-name>
+        <url-pattern>/views/login</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Logout</servlet-name>
+        <servlet-class>com.example.projectmanagement.Controllers.LogoutServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Logout</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+
+    <!-- SignupServlet Configuration -->
+    <servlet>
+        <servlet-name>SignupServlet</servlet-name>
+        <servlet-class>com.example.projectmanagement.Controllers.SignupServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SignupServlet</servlet-name>
+        <url-pattern>/signup</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ProjectsServlet</servlet-name>
+        <jsp-file>/views/projects.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ProjectsServlet</servlet-name>
+        <url-pattern>/projects/add</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ViewProjects</servlet-name>
+        <servlet-class>com.example.projectmanagement.Controllers.ProjectController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ViewProjects</servlet-name>
+        <url-pattern>/views/list</url-pattern>
+    </servlet-mapping>
+
+
 </web-app>

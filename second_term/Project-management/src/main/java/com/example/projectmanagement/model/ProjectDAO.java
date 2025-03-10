@@ -17,7 +17,7 @@ public class ProjectDAO {
     }
 
     public boolean addProject(int userId, String name, String description) {
-        String query = "INSERT INTO projects (user_id, name, description) VALUES (?, ?, ?)";
+        String query = "INSERT INTO projects (user_id, project_name, description) VALUES (?, ?, ?)";
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
             stmt.setInt(1, userId);
             stmt.setString(2, name);
@@ -37,9 +37,9 @@ public class ProjectDAO {
             try (ResultSet rs = stmt.executeQuery()) {
                 while (rs.next()) {
                     projects.add(new Project(
-                            rs.getInt("id"),
+                            rs.getInt("project_id"),
                             rs.getInt("user_id"),
-                            rs.getString("name"),
+                            rs.getString("project_name"),
                             rs.getString("description")
                     ));
                 }

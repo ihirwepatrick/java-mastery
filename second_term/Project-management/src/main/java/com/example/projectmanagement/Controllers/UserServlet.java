@@ -9,7 +9,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/users")
+//@WebServlet("/users")
 public class UserServlet extends HttpServlet {
     private UserDAO userDAO = new UserDAO();
 

@@ -54,7 +54,7 @@
     <script>
         function changeLanguage() {
             var selectedLang = document.getElementById("languageSelect").value;
-            window.location.href = "signup.jsp?lang=" + selectedLang;
+            window.location.href = "views/signup.jsp?lang=" + selectedLang;
         }
     </script>
 </head>
@@ -66,7 +66,7 @@
     <p style="color:red;">Error: Unable to register user.</p>
     <% } %>
 
-    <form action="signup" method="post">
+    <form action="<%=request.getContextPath()%>/signup" method="post">
         <label><%= bundle.getString("login.username") %></label>
         <input type="text" name="name" required><br>
 
@@ -79,7 +79,7 @@
         <input type="submit" class="btn" value="signup">
     </form>
 
-    <p> Login <a href="add-user.jsp">Go to login</a></p>
+    <p> Login <a href="login.jsp">Go to login</a></p>
 
     <!-- Language Selection -->
     <label><%= bundle.getString("language.label") %></label>
@@ -87,6 +87,7 @@
         <option value="en" <%= language.equals("en") ? "selected" : "" %>>English</option>
         <option value="fr" <%= language.equals("fr") ? "selected" : "" %>>Français</option>
     </select>
+
 </div>
 </body>
 </html>

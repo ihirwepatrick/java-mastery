@@ -1,4 +1,5 @@
 package com.example.projectmanagement.Controllers;
+
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -19,7 +20,9 @@ import java.sql.SQLException;
 import java.util.List;
 
 @WebServlet("/views/projects")
+
 public class ProjectController extends HttpServlet {
+
     private ProjectDAO projectDAO;
 
     @Override
@@ -37,7 +40,7 @@ public class ProjectController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession(false);
         if (session == null || session.getAttribute("userId") == null) {
-            response.sendRedirect("add-user.jsp");
+            response.sendRedirect(request.getContextPath() + "/views/login");
             return;
         }
 
@@ -46,7 +49,7 @@ public class ProjectController extends HttpServlet {
         String description = request.getParameter("description");
 
         if (projectDAO.addProject(userId, name, description)) {
-            response.sendRedirect("/projects?userId=" + userId);
+            response.sendRedirect(request.getContextPath() + "/views/list?userId=" + userId);
         } else {
             response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Error adding project");
         }
@@ -56,14 +59,14 @@ public class ProjectController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession(false);
         if (session == null || session.getAttribute("userId") == null) {
-            response.sendRedirect("add-user.jsp");
+            response.sendRedirect(request.getContextPath() + "/views/login");
             return;
         }
 
         int userId = (int) session.getAttribute("userId");
         List<Project> projects = projectDAO.getUserProjects(userId);
         request.setAttribute("projects", projects);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("projects.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/views/projectViewer.jsp");
         dispatcher.forward(request, response);
     }
 }
