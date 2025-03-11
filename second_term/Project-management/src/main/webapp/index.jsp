@@ -352,7 +352,7 @@
                 </div>
             </div>
             <div class="hero-image">
-                <img src="https://via.placeholder.com/600x400?text=Project+Management" alt="Project Management Dashboard">
+                <img src="./assets/dashboard.png" alt="Project Management Dashboard">
             </div>
         </div>
     </div>

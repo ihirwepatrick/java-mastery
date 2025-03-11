@@ -7,6 +7,8 @@ import java.sql.ResultSet;
 
 import com.example.projectmanagement.model.Project;
 import com.example.projectmanagement.model.ProjectDAO;
+import com.example.projectmanagement.model.Task;
+import com.example.projectmanagement.model.TaskDAO;
 import com.example.projectmanagement.utils.DBConnection;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -31,9 +33,11 @@ import java.util.List;
 public class ProjectController extends HttpServlet {
 
     private ProjectDAO projectDAO;
+    private TaskDAO taskDAO;
 
     @Override
     public void init() throws ServletException {
+        taskDAO = new TaskDAO();
         Connection conn = null;
         try {
             conn = DBConnection.getConnection();
@@ -62,7 +66,11 @@ public class ProjectController extends HttpServlet {
                 showNewProjectForm(request, response);
                 break;
             case "/projects/view":
-                viewProject(request, response);
+                try {
+                    viewProject(request, response);
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
                 break;
             case "/projects/edit":
                 showEditProjectForm(request, response);
@@ -135,12 +143,16 @@ public class ProjectController extends HttpServlet {
         }
     }
 
-    private void viewProject(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    private void viewProject(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
         int projectId = Integer.parseInt(request.getParameter("id"));
         Project project = projectDAO.getProjectById(projectId);
+        List<Task> tasks = taskDAO.getTasksByProjectId(projectId);
 
         if (project != null) {
             request.setAttribute("project", project);
+            if(!tasks.isEmpty()) {
+                request.setAttribute("tasks", tasks);
+            }
             RequestDispatcher dispatcher = request.getRequestDispatcher("/project-details");
             dispatcher.forward(request, response);
         } else {

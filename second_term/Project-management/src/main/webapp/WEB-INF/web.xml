@@ -72,5 +72,32 @@
         <servlet-name>Details</servlet-name>
         <url-pattern>/project-details</url-pattern>
     </servlet-mapping>
+<!-- Dashboard-->
+    <servlet>
+        <servlet-name>Dashboard</servlet-name>
+        <jsp-file>/views/dashboard.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Dashboard</servlet-name>
+        <url-pattern>/dashboard</url-pattern>
+    </servlet-mapping>
 
+
+    <!--Task management -->
+    <servlet>
+        <servlet-name>AddTask</servlet-name>
+        <jsp-file>/views/add-task.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddTask</servlet-name>
+        <url-pattern>/add-task</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>EditTask</servlet-name>
+        <jsp-file>/views/edit-task.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EditTask</servlet-name>
+        <url-pattern>/edit-task</url-pattern>
+    </servlet-mapping>
 </web-app>

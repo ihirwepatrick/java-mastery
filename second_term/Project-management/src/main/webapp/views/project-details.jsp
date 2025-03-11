@@ -716,7 +716,7 @@
         </div>
 
         <!-- Example of how tasks would look (commented out) -->
-        <!--
+
         <div class="tasks-list">
             <div class="task-item">
                 <div class="task-info">
@@ -755,7 +755,7 @@
                 </div>
             </div>
         </div>
-        -->
+
     </div>
 
     <!-- Team Members Section -->
