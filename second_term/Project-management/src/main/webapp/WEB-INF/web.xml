@@ -39,22 +39,38 @@
         <servlet-name>SignupServlet</servlet-name>
         <url-pattern>/signup</url-pattern>
     </servlet-mapping>
+<!--    <servlet>-->
+<!--        <servlet-name>ProjectsServlet</servlet-name>-->
+<!--        <jsp-file>/views/projects.jsp</jsp-file>-->
+<!--    </servlet>-->
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>ProjectsServlet</servlet-name>-->
+<!--        <url-pattern>/projects/add</url-pattern>-->
+<!--    </servlet-mapping>-->
+<!--    <servlet>-->
+<!--        <servlet-name>ViewProjects</servlet-name>-->
+<!--        <servlet-class>com.example.projectmanagement.Controllers.ProjectController</servlet-class>-->
+<!--    </servlet>-->
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>ViewProjects</servlet-name>-->
+<!--        <url-pattern>/projects</url-pattern>-->
+<!--    </servlet-mapping>-->
+<servlet>
+    <servlet-name>Edit</servlet-name>
+    <jsp-file>/views/edit-project.jsp</jsp-file>
+</servlet>
+<servlet-mapping>
+    <servlet-name>Edit</servlet-name>
+    <url-pattern>/edit-project</url-pattern>
+</servlet-mapping>
+    <!-- Details servlet-->
     <servlet>
-        <servlet-name>ProjectsServlet</servlet-name>
-        <jsp-file>/views/projects.jsp</jsp-file>
+        <servlet-name>Details</servlet-name>
+        <jsp-file>/views/project-details.jsp</jsp-file>
     </servlet>
     <servlet-mapping>
-        <servlet-name>ProjectsServlet</servlet-name>
-        <url-pattern>/projects/add</url-pattern>
+        <servlet-name>Details</servlet-name>
+        <url-pattern>/project-details</url-pattern>
     </servlet-mapping>
-    <servlet>
-        <servlet-name>ViewProjects</servlet-name>
-        <servlet-class>com.example.projectmanagement.Controllers.ProjectController</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>ViewProjects</servlet-name>
-        <url-pattern>/views/list</url-pattern>
-    </servlet-mapping>
-
 
 </web-app>

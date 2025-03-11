@@ -50,7 +50,7 @@ public class LoginServlet extends HttpServlet {
                 List<Project> projects = projectDAO.getUserProjects(userId);
                 session.setAttribute("projects", projects);
 
-                response.sendRedirect(request.getContextPath() + "/projects/add");
+                response.sendRedirect(request.getContextPath() + "/projects");
             }
             else {
                 response.sendRedirect(request.getContextPath() + "/views/login?error=Invalid Credentials");
