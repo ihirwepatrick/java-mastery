@@ -13,9 +13,15 @@ public class Student {
     private Long id;
     private String name;
     private String email;
+    private int age;
 
     // Constructors
-    public Student() {}
+    public Student(String name,  String email, int age) {
+        this.name = name;
+        this.email = email;
+        this.age = age;
+    }
+    public Student() {};
 
     public Student(String name, String email) {
         this.name = name;
@@ -45,5 +51,11 @@ public class Student {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+    public int getAge() {
+        return age;
+    }
+    public void setAge(int age) {
+        this.age = age;
     }
 }
